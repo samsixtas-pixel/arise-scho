@@ -1,0 +1,23 @@
+
+# Brud Code workspace history
+.brud/
+
+# Local database exports and generated backups
+/config/loan_ims.sql
+/config/pharmacy_ims.sql
+/backups/*.sql
+
+# Local configuration, dependencies, and runtime output
+/.env
+/config/school.local.php
+/vendor/
+/logs/*.log
+/uploads/
+
+# Local test probes
+/.copilot_test_write
+/.test_write_probe
+
+# Local diagnostics and PHP practice scratch files
+/debug_purchase.php
+/practice.php

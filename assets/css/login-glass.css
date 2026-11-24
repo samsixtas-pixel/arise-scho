@@ -1,0 +1,296 @@
+/* ============================================================
+   login-glass.css — Loan Manager sign-in
+   Deep-green glass card on a soft aurora background.
+   Fully self-contained: no external fonts or images.
+   ============================================================ */
+
+:root {
+  --g950: #041F18;
+  --g900: #063328;
+  --g800: #0A4A38;
+  --g700: #0D6348;
+  --g500: #169E6B;
+  --gold: #F0A730;
+  --gold-soft: #FFC043;
+  --paper: #F2F5F3;
+  --danger: #FF8A8A;
+  --muted: rgba(255, 255, 255, .66);
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  background: var(--g950);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scene {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 700px at 12% 8%, #0F7A57 0%, transparent 60%),
+    radial-gradient(900px 600px at 88% 92%, #0B5542 0%, transparent 58%),
+    linear-gradient(150deg, #052A21 0%, #041F18 55%, #062B22 100%);
+}
+
+.scene::before,
+.scene::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .55;
+  pointer-events: none;
+}
+
+.scene::before {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(240,167,48,.55), transparent 70%);
+  top: -120px; right: -60px;
+}
+
+.scene::after {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(22,158,107,.55), transparent 70%);
+  bottom: -180px; left: -120px;
+}
+
+.login-shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 26px;
+  padding: 30px 28px 26px;
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.28);
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,.18), transparent 45%);
+  opacity: .5;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .8rem;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+}
+
+.wordmark b { color: var(--gold); font-weight: 800; }
+
+.brand-badge {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, var(--g500), var(--g700));
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.intro { margin: 26px 0 22px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .68rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.eyebrow .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(240,167,48,.18);
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: 1.62rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -.4px;
+}
+
+.intro p {
+  margin: .45rem 0 0;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.login-form { display: grid; gap: 13px; }
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(4,31,24,.42);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 14px;
+  padding: 0 12px;
+  height: 52px;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.field:focus-within {
+  border-color: rgba(240,167,48,.75);
+  background: rgba(4,31,24,.58);
+  box-shadow: 0 0 0 4px rgba(240,167,48,.14);
+}
+
+.field i { color: rgba(255,255,255,.55); font-size: 1rem; }
+
+.field input {
+  flex: 1;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-size: .94rem;
+  min-width: 0;
+}
+
+.field input::placeholder { color: rgba(255,255,255,.45); }
+
+.reveal {
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,.55);
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.reveal:hover { color: var(--gold); }
+
+.submit {
+  position: relative;
+  height: 52px;
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: .95rem;
+  font-weight: 750;
+  letter-spacing: .2px;
+  color: #20160A;
+  background: linear-gradient(160deg, var(--gold-soft), var(--gold));
+  box-shadow:
+    0 12px 26px rgba(240,167,48,.28),
+    inset 0 1px 0 rgba(255,255,255,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.submit:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 32px rgba(240,167,48,.36),
+    inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+.submit:active { transform: translateY(0); }
+
+.submit[disabled] { opacity: .75; cursor: wait; }
+
+.alert-box {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  background: rgba(220, 53, 69, .16);
+  border: 1px solid rgba(255, 138, 138, .42);
+  color: #FFE3E3;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: .82rem;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.alert-box i { margin-top: 1px; }
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: .76rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.login-foot {
+  text-align: center;
+  color: rgba(255,255,255,.42);
+  font-size: .72rem;
+  margin-top: 18px;
+  letter-spacing: .3px;
+}
+
+.login-foot a { color: rgba(255,255,255,.62); text-decoration: none; }
+.login-foot a:hover { color: var(--gold); }
+
+.lang-pill {
+  display: inline-flex;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-pill a {
+  padding: .22rem .6rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: rgba(255,255,255,.62);
+  text-decoration: none;
+}
+
+.lang-pill a.on { background: rgba(255,255,255,.16); color: #fff; }
+
+@media (max-width: 420px) {
+  .login-card { padding: 24px 20px 22px; border-radius: 22px; }
+  .intro h1 { font-size: 1.4rem; }
+}

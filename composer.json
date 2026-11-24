@@ -1,0 +1,30 @@
+{
+    "name": "loan-manager/weekly-loan-management",
+    "description": "Weekly Loan Management System (Tanzania) - pure OOP PHP, PDO, PhpSpreadsheet",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.0 <8.5",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "phpoffice/phpspreadsheet": "^1.30"
+    },
+    "config": {
+        "platform": {
+            "php": "8.0.30",
+            "ext-gd": "8.0.30",
+            "ext-zip": "8.0.30",
+            "ext-mbstring": "8.0.30"
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "classes/"
+        ],
+        "psr-4": {
+            "School\\": "app/"
+        }
+    }
+}
